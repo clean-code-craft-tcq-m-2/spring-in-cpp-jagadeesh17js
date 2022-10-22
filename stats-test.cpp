@@ -38,17 +38,37 @@ class IAlerter {
     public:
 //     StatsAlerter(
 //     bool ledGlows;
+    virtual void alert() {}
 };
 
 
 class EmailAlert : public IAlerter{
     public:
     bool emailSent;
+    
+    EmailAlert()
+        {
+            emailSent = false;
+        }
+
+        void alert(){
+            emailSent= true;
+        }
 };
 
 class LEDAlert : public IAlerter {
     public:
     bool ledGlows;
+    
+    LEDAlert()
+        {
+            ledGlows = false;
+        }
+
+        void alert(){
+            ledGlows= true;
+        }
+    
 };
 
 // class LEDAlert : public IAlerter {
@@ -60,13 +80,26 @@ class LEDAlert : public IAlerter {
 class StatsAlerter {
     public:
     float maxT;
-    float maxe;
+//     float maxe;
     std::vector<IAlerter*> m_alert;
-    StatsAlerter(float maxThreshold, std::vector<IAlerter*> alerter) {maxT = maxThreshold; 
-                                                                    m_alert = alerter;}
     
-    void checkAndAlert(std::vector<float> vals ) {
-                                                 maxe = vals.at(0);}
+    // constructor
+    StatsAlerter(const float maxThreshold, std::vector<IAlerter*> alerter) 
+    {maxT = maxThreshold; 
+      m_alert = alerter;}
+    
+    void checkAndAlert(std::vector<float> vals ) 
+    {
+        auto comStat = Statistics::ComputeStatistics(vals);
+        if (comStat.max > maxT)
+        {
+            for (size_t i = 0; i < m_alert.size(); i++)
+        {
+            m_alert.at(i)->alert();
+        }
+        }
+//         maxe = vals.at(0);
+    }
 };
 
 TEST_CASE("raises alerts when max is greater than threshold") {
