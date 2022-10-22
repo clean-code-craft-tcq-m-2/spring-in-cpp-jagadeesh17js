@@ -8,7 +8,7 @@
 
 Stats Statistics::ComputeStatistics(const std::vector<float>& vari) {
     //Implement statistics here
-    float x = 0;
+//     float x = 0;
     Stats var ;
 //     var.average = vari.at(0);
 //     if (isnan(accumulate( vari.begin(), vari.end(), 0.0)/ vari.size()) == 0)
@@ -23,7 +23,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& vari) {
     {
         var.average = sum/vari.size();
     }
-    else {var.average = 0}
+    else {var.average = 0;}
     
     
     
