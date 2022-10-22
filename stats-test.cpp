@@ -22,9 +22,9 @@ TEST_CASE("average is NaN for empty array") {
     std::cout << "computedStats.average = " << computedStats.average << std::endl;
     std::cout << "computedStats.max = " << computedStats.max << std::endl;
     std::cout << "computedStats.min = " << computedStats.min << std::endl;
-    isnan(computedStats.average);
-    isnan(computedStats.max);
-    isnan(computedStats.min);
+//     isnan(computedStats.average);
+//     isnan(computedStats.max);
+//     isnan(computedStats.min);
     //Design the REQUIRE statement here.
     //Use http://www.cplusplus.com/reference/cmath/isnan/
 }
