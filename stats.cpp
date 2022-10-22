@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
+#include <math.h>
 
 Stats Statistics::ComputeStatistics(const std::vector<float>& vari) {
     //Implement statistics here
