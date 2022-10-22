@@ -48,7 +48,7 @@ class IAlerter :public LEDAlert , public EmailAlert {
 class StatsAlerter {
     public:
     StatsAlerter(float maxThreshold, std::vector<IAlerter> alerter);
-    checkAndAlert(const std::vector<float>& );
+    checkAndAlert(const std::vector<float> vals );
 };
 
 TEST_CASE("raises alerts when max is greater than threshold") {
