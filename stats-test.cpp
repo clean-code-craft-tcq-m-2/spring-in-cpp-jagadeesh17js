@@ -24,22 +24,22 @@ TEST_CASE("average is NaN for empty array") {
     //Design the REQUIRE statement here.
     //Use http://www.cplusplus.com/reference/cmath/isnan/
 }
-class EmailAlert {
+class EmailAlert : public IAlerter{
     public:
     bool emailSent;
 };
 
-class LEDAlert {
+class LEDAlert : public IAlerter {
     public:
     bool ledGlows;
 };
 
-// class LEDAlert {
+// class LEDAlert : public IAlerter {
 //     public:
 //     bool ledGlows;
 // };
 
-class IAlerter :public LEDAlert , public EmailAlert {
+class IAlerter {
     public:
 //     StatsAlerter(
 //     bool ledGlows;
