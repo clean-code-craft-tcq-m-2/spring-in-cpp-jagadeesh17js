@@ -8,9 +8,6 @@ namespace Statistics {
         float max;
         float min;
                 };
-    class EmailAlert {
-        public:
-        bool emailSent();
-                    };
+   
     Stats ComputeStatistics(const std::vector<float>& );
 }
