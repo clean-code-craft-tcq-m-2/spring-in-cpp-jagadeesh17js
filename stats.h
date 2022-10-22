@@ -10,7 +10,7 @@ namespace Statistics {
                 };
     class EmailAlert {
         public:
-        void emailSent();
+        bool emailSent();
                     };
     Stats ComputeStatistics(const std::vector<float>& );
 }
