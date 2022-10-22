@@ -50,7 +50,8 @@ class LEDAlert : public IAlerter {
 
 class StatsAlerter {
     public:
-    StatsAlerter(float maxThreshold, std::vector<IAlerter> alerter) {};
+    float maxT;
+    StatsAlerter(float maxThreshold, std::vector<IAlerter> alerter) {maxT = maxThreshold; };
     bool checkAndAlert(const std::vector<float> vals );
 };
 
