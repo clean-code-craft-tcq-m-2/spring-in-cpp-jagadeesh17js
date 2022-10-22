@@ -39,7 +39,7 @@ class LEDAlert {
 //     bool ledGlows;
 // };
 
-class IAlerter :public LEDAlert : public EmailAlert {
+class IAlerter :public LEDAlert , public EmailAlert {
     public:
 //     StatsAlerter(
 //     bool ledGlows;
