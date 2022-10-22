@@ -51,8 +51,8 @@ class LEDAlert : public IAlerter {
 class StatsAlerter {
     public:
     float maxT;
-    std::vector<IAlerter> *m_alert;
-    StatsAlerter(float maxThreshold, std::vector<IAlerter> *alerter) {maxT = maxThreshold; 
+    std::vector<IAlerter*> m_alert;
+    StatsAlerter(float maxThreshold, std::vector<IAlerter*> alerter) {maxT = maxThreshold; 
                                                                     m_alert = alerter;}
     
     bool checkAndAlert(const std::vector<float> vals );
@@ -61,7 +61,7 @@ class StatsAlerter {
 TEST_CASE("raises alerts when max is greater than threshold") {
     EmailAlert emailAlert;
     LEDAlert ledAlert;
-    std::vector<IAlerter>* alerters = {&emailAlert, &ledAlert};
+    std::vector<IAlerter*> alerters = {&emailAlert, &ledAlert};
     
     const float maxThreshold = 10.2;
     StatsAlerter statsAlerter(maxThreshold, alerters);
