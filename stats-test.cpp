@@ -47,7 +47,7 @@ class IAlerter {
 
 class StatsAlerter {
     public:
-    StatsAlerter(float maxThreshold, std::vector<IAlerter> alerter);
+    StatsAlerter(float maxThreshold, std::vector<IAlerter> alerter) {};
     bool checkAndAlert(const std::vector<float> vals );
 };
 
