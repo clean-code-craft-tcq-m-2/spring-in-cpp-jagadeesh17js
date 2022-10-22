@@ -29,6 +29,11 @@ class EmailAlert {
     bool emailSent;
 };
 
+class LEDAlert {
+    public:
+    bool ledGlows;
+};
+
 TEST_CASE("raises alerts when max is greater than threshold") {
     EmailAlert emailAlert;
     LEDAlert ledAlert;
