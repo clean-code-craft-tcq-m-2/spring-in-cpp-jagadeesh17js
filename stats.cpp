@@ -16,14 +16,32 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& vari) {
 //         var.average = accumulate( vari.begin(), vari.end(), 0.0)/ vari.size();
 //     }
     
-    
-    
-    auto sum = accumulate( vari.begin(), vari.end(), 0.0);
-    if (isnan(sum/vari.size()) == 0 )
+    if (vari.size() == 0)
     {
-        var.average = sum/vari.size();
+        var.average = std::nanf("0");
+        var.min = std::nanf("0");
+        var.max = std::nanf("0");
     }
-    else {var.average = 0;}
+    else
+    {
+        auto sum = accumulate( vari.begin(), vari.end(), 0.0);
+        var.average = sum/vari.size();
+        
+        auto result = std::max_element(vari.begin(), vari.end());
+        var.max = *result;
+        
+        auto result1 = std::min_element(vari.begin(), vari.end());
+        var.min = *result1;
+        
+    }
+    
+    return var;
+    
+//     if (isnan(sum/vari.size()) == 0 )
+//     {
+//         var.average = sum/vari.size();
+//     }
+//     else {var.average = 0;}
     
     
     
@@ -38,23 +56,23 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& vari) {
 //     std::vector<float>::iterator result;
     
     
-    auto result = std::max_element(vari.begin(), vari.end());
-    if (isnan(*result) == 0)
-    {
-       var.max = *result; 
-    }
-    var.max = *result;
-//     std::cout << "var.max = " << var.max << "\n";
+//     auto result = std::max_element(vari.begin(), vari.end());
+//     if (isnan(*result) == 0)
+//     {
+//        var.max = *result; 
+//     }
+//     var.max = *result;
+// //     std::cout << "var.max = " << var.max << "\n";
     
     
-     auto result1 = std::min_element(vari.begin(), vari.end());
-    if (isnan(*result1) == 0)
-    {
-       var.min = *result1;
-    }
+//      auto result1 = std::min_element(vari.begin(), vari.end());
+//     if (isnan(*result1) == 0)
+//     {
+//        var.min = *result1;
+//     }
     
 //     std::cout << "var.min = " << var.min << "\n";
     
 //     var.min = std::min_element(vari.begin(), vari.end());
-    return var;
+//     return var;
 }
