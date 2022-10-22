@@ -34,10 +34,21 @@ class LEDAlert {
     bool ledGlows;
 };
 
+// class LEDAlert {
+//     public:
+//     bool ledGlows;
+// };
+
+class IAlerter :public LEDAlert : public EmailAlert {
+    public:
+//     StatsAlerter(
+//     bool ledGlows;
+};
+
 TEST_CASE("raises alerts when max is greater than threshold") {
     EmailAlert emailAlert;
     LEDAlert ledAlert;
-    std::vector<IAlerter*> alerters = {&emailAlert, &ledAlert};
+    std::vector<IAlerter>* alerters = {&emailAlert, &ledAlert};
     
     const float maxThreshold = 10.2;
     StatsAlerter statsAlerter(maxThreshold, alerters);
