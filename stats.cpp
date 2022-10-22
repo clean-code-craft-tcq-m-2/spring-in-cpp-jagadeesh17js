@@ -11,8 +11,8 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& vari) {
     Stats var ;
 //     var.average = vari.at(0);
     var.average = accumulate( vari.begin(), vari.end(), 0.0/ vari.size());
-    std::vector<float>::iterator result;
-    result = std::max_element(&vari.begin(), &vari.end());
+//     std::vector<float>::iterator result;
+    auto result = std::max_element(vari.begin(), vari.end());
     var.max = *result;
     
     
