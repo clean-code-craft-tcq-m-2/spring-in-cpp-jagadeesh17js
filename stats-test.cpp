@@ -24,9 +24,13 @@ TEST_CASE("average is NaN for empty array") {
     //Design the REQUIRE statement here.
     //Use http://www.cplusplus.com/reference/cmath/isnan/
 }
+class EmailAlert {
+    public:
+    bool emailSent;
+};
 
 TEST_CASE("raises alerts when max is greater than threshold") {
-    Statistics::EmailAlert emailAlert;
+    EmailAlert emailAlert;
     LEDAlert ledAlert;
     std::vector<IAlerter*> alerters = {&emailAlert, &ledAlert};
     
